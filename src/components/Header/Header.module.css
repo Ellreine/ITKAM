@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    grid-area: h;
+    background-color: green;
+    position: relative;
+}
+.header img {
+    width: 70px;
+}
+
+.header p {
+    position: absolute;
+    left: 50%;
+    text-align: center;
+}

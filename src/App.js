@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import Content from './components/Content/Content';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+import Dialogs from './components/Dialogs/Dialogs';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = (props) => {
+    return (
+        <BrowserRouter>
+            <div className="app-wrapper">
+                <Header />
+                <Navbar />
+                <div className="app-wrapper-content">
+                    <Routes>
+                        <Route
+                            path="/profile"
+                            element={
+                                <Content
+                                    profilePage={props.state.profilePage}
+                                    dispatch={props.dispatch}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/messages/*"
+                            element={
+                                <Dialogs
+                                    store={props.store}
+                                    state={props.state.messagesPage}
+                                />
+                            }
+                        />
+                        <Route path="/news" element={<Dialogs />} />
+                    </Routes>
+                </div>
+
+                <footer></footer>
+            </div>
+        </BrowserRouter>
+    );
+};
 
 export default App;

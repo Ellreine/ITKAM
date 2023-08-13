@@ -1,0 +1,12 @@
+.myPosts {
+    text-align: center;
+}
+.posts {
+    background-color: bisque;
+}
+.newPost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
